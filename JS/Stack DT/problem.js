@@ -1,9 +1,12 @@
-//stack implementation
-//stack uses the LIFO algorithm
-//methods in stack ->
-// isEmpty,isFull,pop,push,peek,claer
+//an algithm to determine whether a word is an even palindrome or not
 
-class stack {
+//psudocode
+//-----------
+// 1.push all the characters of a string into the stack
+// 2.pop out all the chars out of the stack,
+// 3.compare whether the popped  out characters for a string similar to the original one
+
+class Stack {
   constructor() {
     this.dataStore = [];
   }
@@ -46,16 +49,16 @@ class stack {
   }
 }
 
-//testing the stack
-let s1 = new stack();
-s1.push("David");
-s1.push("Raymond");
-s1.push("Brian");
-s1.push("Antony");
-console.log(`The stack length is ${s1.length()}`);
-const popped = s1.pop();
-console.log(`The popped element is ${popped}`);
-s1.push("cynthia");
-console.log(s1.peek());
-s1.clear();
-console.log(`The stack length after clearing is ${s1.length}`);
+function isEvenPalindrome(word) {
+  let st1 = new Stack();
+  //push
+  word.split().forEach((char) => st1.push(char));
+  //pop
+  const reversed = st1.dataStore.forEach((el) => st1.pop());
+  if (word === reversed) {
+    return true;
+  }
+  return false;
+}
+
+console.log(isEvenPalindrome("animal"));
